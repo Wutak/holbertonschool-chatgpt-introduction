@@ -1,17 +1,14 @@
 #!/usr/bin/python3
 import sys
-
 def factorial(n):
-    if n < 0:
-        raise ValueError("Lenombre doit √tre un entier non n√gatif.")
     result = 1
-    for i in range(2, n + 1):
-        result *= i
+    while n > 1:
+        result *= n
+        n -= 1  # Diminuer la valeur de n √† chaque it√©ration
     return result
-
-if __name__ == "__name__":
-    try:
-        n = int(sys.argv[1])
-        print(factorial(n))
-    except (IndexError , ValueError):
-        print("Usage : python3 script.py <entier_non_n√gatif>")
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        f = factorial(int(sys.argv[1]))
+        print(f)
+    else:
+        print("Veuillez fournir un argument.")
